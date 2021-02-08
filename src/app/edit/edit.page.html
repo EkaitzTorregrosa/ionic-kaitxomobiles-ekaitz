@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-button [routerLink]="['/home']" routerDirection="back" color="medium">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title slot="secondary">Actualizar móvil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="mobileForm" *ngIf="mobile" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>Nombre:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="..." formControlName="title" value="{{mobile.title}}">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Price:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="..." formControlName="price" value="{{mobile.date}}">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Descripcion (corta):</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-textarea type="text" placeholder="..." formControlName="shortDescription" value="{{mobile.shortDescription}}">
+          </ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Descripcion (larga):</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-textarea type="text" placeholder="..." formControlName="description" value="{{mobile.description}}">
+          </ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Imagen:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="url" placeholder="http://****" formControlName="image" value="{{mobile.image}}">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+
+
+    <ion-button type="submit" shape="round" size="small" color="primary">
+      <ion-label>Guardar</ion-label>
+      <ion-icon slot="icon-only" size="small" name="save"></ion-icon>
+    </ion-button>
+    <ion-button shape="round" color="danger" size="small" [routerLink]="['/home']">
+      <ion-label>Cancelar</ion-label>
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="primary">
+      Catálogo de móviles
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let mobile of mobiles" (click)="mobileTapped(mobile)">
+        <ion-thumbnail slot="start">
+          <img src="{{mobile.images}}">
+        </ion-thumbnail>
+        <ion-label> {{mobile.title}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-toolbar>
+  <img src="../../assets/4Vientos_iconoBlanco.png"/>
+  <ion-title slot="primary">
+    Ekaitz - DI 2021
+  </ion-title>
+</ion-toolbar>
