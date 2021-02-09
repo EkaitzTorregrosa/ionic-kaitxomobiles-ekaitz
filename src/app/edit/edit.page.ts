@@ -32,7 +32,7 @@ export class EditPage implements OnInit {
         this.mobileForm.get('price').setValue(this.mobile.price);
         this.mobileForm.get('shortDescription').setValue(this.mobile.shortDescription);
         this.mobileForm.get('description').setValue(this.mobile.description);
-        this.mobileForm.get('image').setValue(this.mobile.images);
+        this.mobileForm.get('images').setValue(this.mobile.images);
       }
     );
     this.mobileForm = new FormGroup({

@@ -4,5 +4,5 @@ export interface IMobile {
     price: number;
     shortDescription: string;
     description: string;
-    image: string;
+    images: string;
 }
