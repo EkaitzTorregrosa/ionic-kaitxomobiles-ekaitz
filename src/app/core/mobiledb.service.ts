@@ -16,7 +16,7 @@ export class MobiledbService {
       price: value.price,
       shortDescription: value.shortDescription,
       description: value.description,
-      images: value.image
+      images: value.images
     })
       .then(
         (data) => console.log('Stored first item!', data),
