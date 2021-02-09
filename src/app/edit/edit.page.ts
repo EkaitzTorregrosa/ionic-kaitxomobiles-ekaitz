@@ -76,7 +76,6 @@ export class EditPage implements OnInit {
     this.mobiledbService.remove(this.id);
     this.mobile.id = id;
     this.mobiledbService.setItem(this.mobile.id, this.mobile);
-    console.warn(this.mobileForm.value);
   }
 
 }
