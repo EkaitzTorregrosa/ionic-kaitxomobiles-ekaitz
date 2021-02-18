@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMobile } from '../shared/interfaces';
 import { Storage } from '@ionic/storage';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class MobiledbService {
       price: value.price,
       shortDescription: value.shortDescription,
       description: value.description,
-      images: value.image
+      images: value.images
     })
       .then(
         (data) => console.log('Stored first item!', data),

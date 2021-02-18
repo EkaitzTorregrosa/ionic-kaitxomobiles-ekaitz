@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MobiledbService } from '../core/mobiledb.service';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { IMobile } from '../shared/interfaces';
+import { MobilecrudService } from '../core/mobilecrud.service';
+
 
 @Component({
   selector: 'app-create',
@@ -11,20 +12,24 @@ import { IMobile } from '../shared/interfaces';
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
+
+  strId: string;
   mobile: IMobile;
+  mobiles: IMobile[] = [];
   mobileForm: FormGroup;
   constructor(
     private router: Router,
-    private mobiledbService: MobiledbService,
+    private mobilecrudService: MobilecrudService,
     public toastController: ToastController
   ) { }
+
   ngOnInit() {
     this.mobileForm = new FormGroup({
       title: new FormControl(''),
       price: new FormControl(''),
       shortDescription: new FormControl(''),
       description: new FormControl(''),
-      image: new FormControl(''),
+      images: new FormControl('')
     });
   }
 
@@ -38,7 +43,8 @@ export class CreatePage implements OnInit {
           icon: 'save',
           text: 'ACEPTAR',
           handler: () => {
-            this.saveMobile();
+            this.mobile = this.mobileForm.value;
+            this.mobilecrudService.create_Mobile(this.mobile);
             this.router.navigate(['home']);
           }
         }, {
@@ -51,12 +57,5 @@ export class CreatePage implements OnInit {
       ]
     });
     toast.present();
-  }
-  saveMobile() {
-    this.mobile = this.mobileForm.value;
-    let nextKey = this.mobile.title.trim();
-    this.mobile.id = nextKey;
-    this.mobiledbService.setItem(nextKey, this.mobile);
-    console.warn(this.mobileForm.value);
   }
 }
